@@ -3,6 +3,7 @@ import { db } from "../firebase/config";
 import { collection, orderBy, query, onSnapshot, where } from "firebase/firestore";
 
 export const useFirestore = (coll, condition) => {
+    // React: Get to firebase
     const [documents, setDocuments] = useState([]);
     React.useEffect(() => {
         let collectionRef = query(collection(db, coll), orderBy('createdAt'));

@@ -61,7 +61,7 @@ async function fetchUserList(search, curMembers) {
     return result.filter((opt) => !curMembers.includes(opt.value));
 }
 
-export default function InviteMemberModel() {
+export default function InviteMemberModal() {
     const { isInviteMemberVisible, setIsInviteMemberVisible, selectedRoomId, selectedRoom } = useContext(AppContext);
     const [value, setValue] = useState([]);
     const [form] = Form.useForm();
@@ -70,8 +70,7 @@ export default function InviteMemberModel() {
         form.resetFields();
         setIsInviteMemberVisible(false);
 
-        // update member in current room
-        // const roomRef = query(collection(db, 'rooms'),doc(selectedRoomId));
+        // React: Update to firebase (update member in current room)
         const roomRef = doc(db, 'rooms', selectedRoomId);
 
         updateDoc(roomRef, {

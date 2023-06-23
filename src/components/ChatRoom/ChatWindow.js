@@ -70,7 +70,6 @@ export default function ChatWindow() {
     const [form] = Form.useForm();
     const inputRef = useRef(null);
     const messageListRef = useRef(null);
-    // const selectedRoom = React.useMemo(() => rooms.find((room) => room.id === selectedRoomId), [rooms, selectedRoomId]);
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -105,10 +104,10 @@ export default function ChatWindow() {
     useEffect(() => {
         // scroll to bottom after message changed
         if (messageListRef?.current) {
-          messageListRef.current.scrollTop =
-            messageListRef.current.scrollHeight + 50;
+            messageListRef.current.scrollTop =
+                messageListRef.current.scrollHeight + 50;
         }
-      }, [messages]);
+    }, [messages]);
     return (
         <WrapperStyled>
             {
@@ -135,7 +134,7 @@ export default function ChatWindow() {
                                     text={mes.text}
                                     photoURL={mes.photoURL}
                                     displayName={mes.displayName}
-                                    createdAt={mes.createdAt}
+                                    createdAt={mes.createdAt} 
                                 />
                             ))}
                         </MessageListStyled>
